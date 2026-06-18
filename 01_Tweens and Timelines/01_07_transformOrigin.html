@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP | Basic Tween</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;background-color: #f0f0f0;
+            padding:30px 0;
+        }
+        .main {
+            max-width: 85%;
+            margin: 0 auto;
+            width: 100%;
+            height:80vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;           
+        }
+
+        .blueBox {
+            width: 600px;
+            height: 600px;
+            background-color:#a0e1f0;
+            border-radius:30px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+        .btnBox {display: flex; flex-direction:row; gap: 10px;}
+        .btn {padding: 10px 40px; border: 1px solid #333333; border-radius: 10px; background-color: rgb(255, 255, 255); color: #333333; font-size: 16px; cursor: pointer;   }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="blueBox">
+            <img src="./../images/car.png" id="car" alt="car" style="object-fit:cover; max-width:500px;background-color:transparent;">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script>
+     const car = gsap.to("#car", {
+            transformOrigin:"left bottom",
+            rotation: -40,
+            duration: 2,
+            repeat: -1,
+            yoyo: true,
+            ease: "back.in(1)",
+        })
+        document.addEventListener("car", () => car.restart());
+    </script>    
+</body>
+</html>

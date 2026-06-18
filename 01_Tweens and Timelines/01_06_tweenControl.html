@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP | Basic Tween</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;background-color: #f0f0f0;
+            padding:30px 0;
+        }
+        .main {
+            max-width: 85%;
+            margin: 0 auto;
+            width: 100%;
+            height:80vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;           
+        }
+
+        .blueBox {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(11, 132, 201);
+            border-radius:30px;
+            opacity:0.3;
+        }
+        .btnBox {display: flex; flex-direction:row; gap: 10px;}
+        .btn {padding: 10px 40px; border: 1px solid #333333; border-radius: 10px; background-color: rgb(255, 255, 255); color: #333333; font-size: 16px; cursor: pointer;   }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="blueBox"></div>
+        <div class="btnBox">
+            <button class="btn" id="playBtn">Play</button>
+            <button class="btn" id="pauseBtn">Pause</button>
+            <button class="btn" id="resumeBtn">Resume</button>
+            <button class="btn" id="reverseBtn">Reverse</button>
+            <button class="btn" id="restartBtn">Restart</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script>
+     let controller =  gsap.to(".blueBox", {
+            x:600,
+            opacity:1,
+            duration: 2,
+            ease: "power1.inOut",
+            paused:true,
+        })
+        document.querySelector('#playBtn').onclick =() => {controller.play();}
+        document.querySelector('#pauseBtn').onclick =() => {controller.pause();}
+        document.querySelector('#resumeBtn').onclick =() => {controller.resume();}
+        document.querySelector('#reverseBtn').onclick =() => {controller.reverse();}
+        document.querySelector('#restartBtn').onclick =() => {controller.restart();}
+    </script>    
+</body>
+</html>
